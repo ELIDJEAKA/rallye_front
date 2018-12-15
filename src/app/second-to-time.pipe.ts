@@ -16,7 +16,7 @@ export class SecondToTimePipe implements PipeTransform {
     if (hours < 10) { hour = "0" + hours; }
     if (minutes < 10) { minute = "0" + minutes; }
     if (seconds < 10) { second = "0" + seconds; }
-    return hour + ':' + minute + ':' + second + '.' + parseInt(JSON.stringify(value).split('.')[1].substring(0, 3));
+    return hour + ':' + minute + ':' + second + '.' + JSON.stringify(value).split('.')[1].substring(0, 3);
     //return seconds;
   }
 
