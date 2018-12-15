@@ -10,6 +10,7 @@ export class SpecialesComponent implements OnInit {
 
   constructor(private classementService: ClassementService, private router: Router) { }
   speciales :any;
+  term:any;
   ngOnInit() {
     this.getAllSpeciales()
   }
