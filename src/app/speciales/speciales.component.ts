@@ -13,7 +13,7 @@ export class SpecialesComponent implements OnInit {
   term:any;
   ramdom:number;
   tab_images = [
-    "https://cdn.pixabay.com/photo/2017/06/19/19/05/rally-2420637_960_720.jpg",
+    
     "http://images.larepubliquedespyrenees.fr/2017/03/01/58b71395a43f5ea4166d895e/golden/le-35e-rallye-d-arzacq-c-est-ce-week-end.jpg",
     "https://cdn-s-www.ledauphine.com/images/837830C2-C1BD-49B5-80E0-47275C792976/LDL_V0_12/sebastien-ogier-a-remporte-le-rallye-de-grande-bretagne-photo-geoff-caddick-afp-1539653919.jpg",
     "http://sf2.sport365.fr/wp-content/uploads/se/2016/01/299112-750x410.jpg",
