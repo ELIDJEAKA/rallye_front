@@ -23,4 +23,8 @@ export class ClassementService {
     return this.http.get(API_URL + '/temps/speciale/'+id_speciale);
   }
 
+  getSpecialeId(id_speciale){
+    return this.http.get(API_URL + '/speciale/'+id_speciale);
+  }
+
 }

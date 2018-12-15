@@ -14,12 +14,21 @@ export class SpecialeSingleComponent implements OnInit {
   classements: any;
   class_SSV: any;
   class_nonSSV: any;
+  speciale:any;
   ngOnInit() {
     this.id_speciale = this.router.snapshot.paramMap.get('id_speciale')
     this.getGenralClassification(this.id_speciale)
     this.getClassificationbySSV(this.id_speciale)
     this.getClassificationbyNonSSV(this.id_speciale)
+    this.getSpecialeId(this.id_speciale)
+  }
 
+
+  getSpecialeId(id_speciale) {
+    this.classementService.getSpecialeId(id_speciale)
+      .subscribe((data) => {
+        this.speciale = data
+      })
   }
 
   getGenralClassification(id_speciale) {

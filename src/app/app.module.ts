@@ -10,6 +10,7 @@ import { ClassementComponent } from './classement/classement.component';
 import { SecondToTimePipe } from './second-to-time.pipe';
 import { SpecialesComponent } from './speciales/speciales.component';
 import { SpecialeSingleComponent } from './speciale-single/speciale-single.component';
+import { RamdompipePipe } from './ramdompipe.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SpecialeSingleComponent } from './speciale-single/speciale-single.compo
     ClassementComponent,
     SecondToTimePipe,
     SpecialesComponent,
-    SpecialeSingleComponent
+    SpecialeSingleComponent,
+    RamdompipePipe
   ],
   imports: [
     BrowserModule,
