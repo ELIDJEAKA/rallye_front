@@ -3,10 +3,16 @@
   <div class="container">
     <header>
       <h2>Liste des spéciales</h2>
-      <div class="md-input-wrapper">
+      <!-- <div class="md-input-wrapper">
         <p>Effectuer la recherche en tapant le nom de la spéciale</p>
-        <input type="text" id="search-data" class="md-form-control" [(ngModel)]="term">
-        <!-- <label>fff</label> -->
+        <input type="text" id="search-data" class="form-control" [(ngModel)]="term">
+         <label>fff</label> 
+        
+      </div> -->
+      <div class="form-group">
+        <!-- <label for="exampleInputEmail1">Email address</label> -->
+        <input type="email" class="form-control" [(ngModel)]="term" id="search-data" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">Effectuer la recherche en tapant le nom de la spéciale</small>
       </div>
     </header>
     <div class="row">

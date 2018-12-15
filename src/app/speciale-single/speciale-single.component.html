@@ -13,8 +13,8 @@
                 <th scope="col">Rang</th>
                 <th scope="col">N°</th>
                 <th scope="col">Pilote/Co-pilote</th>
-                <th scope="col">Vehicule</th>
-                <th scope="col">Group</th>
+                <th scope="col" class="d-none d-sm-table-cell">Vehicule</th>
+                <th scope="col" class="d-none d-sm-table-cell">Group</th>
                 <th scope="col">Temps</th>
               </tr>
             </thead>
@@ -24,8 +24,8 @@
                 <th scope="row">{{classement.pilote.numero}} </th>
                 <td>{{classement.pilote.prenom_pilote}} {{classement.pilote.nom_pilote}} / {{classement.pilote.prenom_copilote}} {{classement.pilote.nom_copilote}}
                 </td>
-                <td>{{classement.pilote.marque_vehicule}}</td>
-                <td>{{classement.pilote.classgroup}}</td>
+                <td class="d-none d-sm-table-cell">{{classement.pilote.marque_vehicule}}</td>
+                <td class="d-none d-sm-table-cell">{{classement.pilote.classgroup}}</td>
                 <td>{{classement.temps|secondToTime}}</td>
               </tr>
             </tbody>
@@ -58,8 +58,8 @@
                 <th scope="col">Rang</th>
                 <th scope="col">N°</th>
                 <th scope="col">Pilote/Co-pilote</th>
-                <th scope="col">Vehicule</th>
-                <th scope="col">Group</th>
+                <th scope="col" class="d-none d-sm-table-cell">Vehicule</th>
+                <th scope="col" class="d-none d-sm-table-cell">Group</th>
                 <th scope="col">Temps</th>
               </tr>
             </thead>
@@ -69,8 +69,8 @@
                 <th scope="row">{{s.pilote.numero}} </th>
                 <td>{{s.pilote.prenom_pilote}} {{s.pilote.nom_pilote}} / {{s.pilote.prenom_copilote}} {{s.pilote.nom_copilote}}
                 </td>
-                <td>{{s.pilote.marque_vehicule}}</td>
-                <td>{{s.pilote.classgroup}}</td>
+                <td class="d-none d-sm-table-cell">{{s.pilote.marque_vehicule}}</td>
+                <td class="d-none d-sm-table-cell">{{s.pilote.classgroup}}</td>
                 <td>{{s.temps|secondToTime}}</td>
               </tr>
             </tbody>
@@ -99,8 +99,8 @@
                 <th scope="col">Rang</th>
                 <th scope="col">N°</th>
                 <th scope="col">Pilote/Co-pilote</th>
-                <th scope="col">Vehicule</th>
-                <th scope="col">Group</th>
+                <th scope="col" class="d-none d-sm-table-cell">Vehicule</th>
+                <th scope="col" class="d-none d-sm-table-cell">Group</th>
                 <th scope="col">Temps</th>
               </tr>
             </thead>
@@ -110,8 +110,8 @@
                 <th scope="row">{{s.pilote.numero}} </th>
                 <td>{{s.pilote.prenom_pilote}} {{s.pilote.nom_pilote}} / {{s.pilote.prenom_copilote}} {{s.pilote.nom_copilote}}
                 </td>
-                <td>{{s.pilote.marque_vehicule}}</td>
-                <td>{{s.pilote.classgroup}}</td>
+                <td class="d-none d-sm-table-cell">{{s.pilote.marque_vehicule}}</td>
+                <td class="d-none d-sm-table-cell">{{s.pilote.classgroup}}</td>
                 <td>{{s.temps|secondToTime}}</td>
               </tr>
             </tbody>
