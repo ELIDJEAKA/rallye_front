@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClassementService } from 'src/app/services/classement.service';
-
+import {Socket} from 'ng-socket-io'
 @Component({
   selector: 'app-classement',
   templateUrl: './classement.component.html',
@@ -8,7 +8,9 @@ import { ClassementService } from 'src/app/services/classement.service';
 })
 export class ClassementComponent implements OnInit {
 
-  constructor(private classementService: ClassementService) { }
+  constructor(private classementService: ClassementService, private socket: Socket) {
+
+   }
   classements: any;
   class_SSV:any;
   class_nonSSV:any;
@@ -16,6 +18,11 @@ export class ClassementComponent implements OnInit {
     this.getGenralClassification()
     this.getClassificationbySSV()
     this.getClassificationbyNonSSV()
+    this.socket.on('classement', (data) => {
+      console.log('received general classification from socket');
+      console.log(data);
+      this.getClassementSocket(data);
+    });
 
   }
 
@@ -47,5 +54,12 @@ export class ClassementComponent implements OnInit {
       })
   }
 
-  
+  getClassementSocket(cls){
+    this.classements = cls;
+    this.class_nonSSV = cls.filter(classement => classement.classgroup.toUpperCase() != 'SSV');
+    this.class_SSV = cls.filter(classement => classement.classgroup.toUpperCase() == 'SSV');
+
+  }
+
+
 }

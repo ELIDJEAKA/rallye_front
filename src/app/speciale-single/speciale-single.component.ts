@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClassementService } from 'src/app/services/classement.service';
 import { ActivatedRoute } from '@angular/router';
+import { Socket } from 'ng-socket-io'
 @Component({
   selector: 'app-speciale-single',
   templateUrl: './speciale-single.component.html',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SpecialeSingleComponent implements OnInit {
 
-  constructor(private classementService: ClassementService, private router: ActivatedRoute) { }
+  constructor(private classementService: ClassementService, private router: ActivatedRoute, private socket:Socket) { }
   id_speciale:any;
   classements: any;
   class_SSV: any;
@@ -21,6 +22,10 @@ export class SpecialeSingleComponent implements OnInit {
     this.getClassificationbySSV(this.id_speciale)
     this.getClassificationbyNonSSV(this.id_speciale)
     this.getSpecialeId(this.id_speciale)
+    this.socket.on('classement'+ this.id_speciale, (data) => {
+      console.log('classement de la speciale 1');
+      console.log(data);
+    });
   }
 
 

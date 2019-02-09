@@ -11,6 +11,11 @@ import { SecondToTimePipe } from './second-to-time.pipe';
 import { SpecialesComponent } from './speciales/speciales.component';
 import { SpecialeSingleComponent } from './speciale-single/speciale-single.component';
 import { RamdompipePipe } from './ramdompipe.pipe';
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+
+
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+
 
 @NgModule({
   declarations: [
@@ -27,6 +32,7 @@ import { RamdompipePipe } from './ramdompipe.pipe';
     HttpClientModule,
     Ng2SearchPipeModule,
     FormsModule,
+    SocketIoModule.forRoot(config),
     RouterModule.forRoot([
       {
         path: '',
@@ -44,7 +50,7 @@ import { RamdompipePipe } from './ramdompipe.pipe';
       {
         path: 'classement-speciale/:id_speciale',
         component: SpecialeSingleComponent
-        
+
       }
     ])
   ],
