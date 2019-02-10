@@ -22,9 +22,8 @@ export class SpecialeSingleComponent implements OnInit {
     this.getClassificationbySSV(this.id_speciale)
     this.getClassificationbyNonSSV(this.id_speciale)
     this.getSpecialeId(this.id_speciale)
-    this.socket.on('classement'+ this.id_speciale, (data) => {
-      console.log('classement de la speciale 1');
-      console.log(data);
+    this.socket.on('speciale'+ this.id_speciale, (data) => {
+      this.getClassementSocket(data);
     });
   }
 
@@ -61,6 +60,12 @@ export class SpecialeSingleComponent implements OnInit {
         this.class_nonSSV = result
         console.log(this.class_nonSSV.arc)
       })
+  }
+
+  getClassementSocket(cls){
+    this.classements = cls;
+    this.class_nonSSV = cls.filter(classement => classement.pilote.classgroup.toUpperCase() != 'SSV');
+    this.class_SSV = cls.filter(classement => classement.pilote.classgroup.toUpperCase() == 'SSV');
   }
 
 

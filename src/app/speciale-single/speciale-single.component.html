@@ -1,7 +1,7 @@
 <article id="work" class="wrapper style2">
   <div class="container">
     <header>
-      <h2>Classement général officieux (Hors Pénalité) de la spéciale {{speciale.id}} : {{speciale.nom_speciale}} </h2>
+      <h2 *ngIf="speciale">Classement général officieux (Hors Pénalité) de la spéciale {{speciale.id}} : {{speciale.nom_speciale}} </h2>
       <!-- <p>Odi turpis amet sed consequat eget posuere consequat.</p> -->
     </header>
     <div class="row aln-center">
@@ -35,7 +35,7 @@
           <p>Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore.</p> -->
         </section>
       </div>
-      
+
     </div>
     <!-- <footer>
       <p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
@@ -46,7 +46,7 @@
 <article id="SSV" class="wrapper style2">
   <div class="container">
     <header>
-      <h2>Classement SSV officieux (Hors Pénalité) de la spéciale {{speciale.id}} : {{speciale.nom_speciale}}</h2>
+      <h2 *ngIf="speciale">Classement SSV officieux (Hors Pénalité) de la spéciale {{speciale.id}} : {{speciale.nom_speciale}}</h2>
       <!-- <p>Odi turpis amet sed consequat eget posuere consequat.</p> -->
     </header>
     <div class="row aln-center">
@@ -87,7 +87,7 @@
 <article id="NONSSV" class="wrapper style2">
   <div class="container">
     <header>
-      <h2>Classement 4WD/2WD officieux (Hors Pénalité) de la spéciale {{speciale.id}} : {{speciale.nom_speciale}}</h2>
+      <h2 *ngIf="speciale">Classement 4WD/2WD officieux (Hors Pénalité) de la spéciale {{speciale.id}} : {{speciale.nom_speciale}}</h2>
       <!-- <p>Odi turpis amet sed consequat eget posuere consequat.</p> -->
     </header>
     <div class="row aln-center">

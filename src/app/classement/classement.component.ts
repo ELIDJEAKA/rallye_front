@@ -58,7 +58,6 @@ export class ClassementComponent implements OnInit {
     this.classements = cls;
     this.class_nonSSV = cls.filter(classement => classement.classgroup.toUpperCase() != 'SSV');
     this.class_SSV = cls.filter(classement => classement.classgroup.toUpperCase() == 'SSV');
-
   }
 
 
