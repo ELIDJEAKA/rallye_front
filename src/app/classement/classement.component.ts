@@ -30,7 +30,7 @@ export class ClassementComponent implements OnInit {
   getGenralClassification() {
     this.classementService.getGeneralClassification()
       .subscribe((data) => {
-        //console.log(data)
+        console.log(data)
         this.classements = data
       })
   }
