@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ClassementService } from 'src/app/services/classement.service';
 import {Socket} from 'ng-socket-io'
+
+import { MenuItem } from 'primeng/api';
 @Component({
   selector: 'app-classement',
   templateUrl: './classement.component.html',
@@ -14,6 +16,8 @@ export class ClassementComponent implements OnInit {
   classements: any;
   class_SSV:any;
   class_nonSSV:any;
+  items: MenuItem[];
+  activeIndex: number = 0;
   ngOnInit() {
     this.getGenralClassification()
     this.getClassificationbySSV()
@@ -23,6 +27,87 @@ export class ClassementComponent implements OnInit {
       console.log(data);
       this.getClassementSocket(data);
     });
+
+    this.items = [{
+      label: 'Personal',
+      command: (event: any) => {
+          this.activeIndex = 0;
+          //this.messageService.add({ severity: 'info', summary: 'First Step', detail: event.item.label });
+        }
+      },
+      {
+        label: 'Seat',
+        command: (event: any) => {
+          this.activeIndex = 1;
+          // this.messageService.add({ severity: 'info', summary: 'Seat Selection', detail: event.item.label });
+        }
+      },
+      {
+        label: 'Payment',
+        command: (event: any) => {
+          this.activeIndex = 2;
+          // this.messageService.add({ severity: 'info', summary: 'Pay with CC', detail: event.item.label });
+        }
+      },
+      {
+        label: 'Confirmation',
+        command: (event: any) => {
+          this.activeIndex = 3;
+          // this.messageService.add({ severity: 'info', summary: 'Last Step', detail: event.item.label });
+        }
+      },
+      {
+        label: 'Daniel',
+        command: (event: any) => {
+          this.activeIndex = 4;
+          // this.messageService.add({ severity: 'info', summary: 'Last Step', detail: event.item.label });
+        }
+      },
+      {
+        label: 'Daniel',
+        command: (event: any) => {
+          this.activeIndex = 4;
+          // this.messageService.add({ severity: 'info', summary: 'Last Step', detail: event.item.label });
+        }
+      },
+      {
+        label: 'Daniel',
+        command: (event: any) => {
+          this.activeIndex = 4;
+          // this.messageService.add({ severity: 'info', summary: 'Last Step', detail: event.item.label });
+        }
+      },
+      
+      
+      {
+        label: 'Daniel',
+        command: (event: any) => {
+          this.activeIndex = 4;
+          // this.messageService.add({ severity: 'info', summary: 'Last Step', detail: event.item.label });
+        }
+      },
+      {
+        label: 'Daniel',
+        command: (event: any) => {
+          this.activeIndex = 4;
+          // this.messageService.add({ severity: 'info', summary: 'Last Step', detail: event.item.label });
+        }
+      },
+      {
+        label: 'Daniel',
+        command: (event: any) => {
+          this.activeIndex = 4;
+          // this.messageService.add({ severity: 'info', summary: 'Last Step', detail: event.item.label });
+        }
+      },
+      {
+        label: 'Daniel',
+        command: (event: any) => {
+          this.activeIndex = 4;
+          // this.messageService.add({ severity: 'info', summary: 'Last Step', detail: event.item.label });
+        }
+      }
+      ];
 
   }
 

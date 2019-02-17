@@ -12,7 +12,8 @@ import { SpecialesComponent } from './speciales/speciales.component';
 import { SpecialeSingleComponent } from './speciale-single/speciale-single.component';
 import { RamdompipePipe } from './ramdompipe.pipe';
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { StepsModule } from 'primeng/steps';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -31,7 +32,9 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     BrowserModule,
     HttpClientModule,
     Ng2SearchPipeModule,
+    StepsModule,
     FormsModule,
+    BrowserAnimationsModule,
     SocketIoModule.forRoot(config),
     RouterModule.forRoot([
       {
