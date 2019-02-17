@@ -51,16 +51,16 @@
     <div class="row aln-center">
       <div class="col-12 col-12-medium col-12-small">
         <section class="box style1">
-          <table class="row-border hover table">
+          <table class="row-border hover table table-striped table-bordered">
             <thead>
               <tr>
-                <th style="width: 60px;">Rang</th>
-                <th style="width: 60px;">N°</th>
-                <th style="width: 200px;">Pilote</th>
-                <th style="width: 200px;">Co-pilote</th>
-                <th style="width: 200px;">Vehicule</th>
-                <th style="width: 60px;">Group</th>
-                <th>Temps</th>
+                <th >Rang</th>
+                <th >N°</th>
+                <th style="width:20%;">Pilote</th>
+                <th style="width:20%;">Co-pilote</th>
+                <th style="width:20%;">Vehicule</th>
+                <th style="width:20%;">Group</th>
+                <th style="width:20%;">Temps</th>
               </tr>
             </thead>
             <tbody>
@@ -69,8 +69,8 @@
                 
                 <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}" >{{i+1}} </td>
                 
-                <td >{{s.numero}} </td>
-                <td style="text-align:left;">
+                <td style="width:5%;">{{s.numero}} </td>
+                <td style="text-align:left;width:5%;">
                   <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
                   {{s.prenom_pilote}} {{s.nom_pilote}} <br/>
                 </td>
@@ -104,21 +104,21 @@
           <table class="row-border hover table table-striped table-bordered">
             <thead>
               <tr>
-                <th style="width: 60px;">Rang</th>
-                <th style="width: 60px;">N°</th>
-                <th style="width: 200px;">Pilote</th>
-                <th style="width: 200px;">Co-pilote</th>
-                <th style="width: 200px;">Vehicule</th>
-                <th style="width: 60px;">Group</th>
-                <th>Temps</th>
+                <th>Rang</th>
+                <th>N°</th>
+                <th style="width:20%;">Pilote</th>
+                <th style="width:20%;">Co-pilote</th>
+                <th style="width:20%;">Vehicule</th>
+                <th style="width:20%;">Group</th>
+                <th style="width:20%;">Temps</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let s of class_SSV; let i = index">
               <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}">{{i+1}} </td>
               
-              <td>{{s.numero}} </td>
-              <td style="text-align:left;">
+              <td style="width:5%;">{{s.numero}} </td>
+              <td style="text-align:left;width:5%;">
                 <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays"
                   class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
                 {{s.prenom_pilote}} {{s.nom_pilote}} <br />
