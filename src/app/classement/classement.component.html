@@ -10,12 +10,12 @@
           <table class="row-border hover table table-striped table-bordered">
             <thead>
               <tr>
-                <th scope="col">Rang</th>
-                <th scope="col">N°</th>
-                <th scope="col">Pilote/Co-pilote</th>
-                <th scope="col" class="d-none d-sm-table-cell">Vehicule</th>
-                <th scope="col" class="d-none d-sm-table-cell">Group</th>
-                <th scope="col">Temps</th>
+                <th >Rang</th>
+                <th >N°</th>
+                <th >Pilote/Co-pilote</th>
+                <th  class="d-none d-sm-table-cell">Vehicule</th>
+                <th  class="d-none d-sm-table-cell">Group</th>
+                <th >Temps</th>
               </tr>
             </thead>
             <tbody>
@@ -23,9 +23,9 @@
                 <td>{{i+1}} </td>
                 <th scope="row">{{classement.numero}} </th>
                 <td>
-                  <img src="https://restcountries.eu/data/{{classement.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                  <img src="https://restcountries.eu/data/{{classement.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
                   {{classement.prenom_pilote}} {{classement.nom_pilote}} <br/>
-                  <img src="https://restcountries.eu/data/{{classement.nat_copilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                  <img src="https://restcountries.eu/data/{{classement.nat_copilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
                    {{classement.prenom_copilote}} {{classement.nom_copilote}}
                 </td>
                 <td class="d-none d-sm-table-cell">{{classement.marque_vehicule}}</td>
@@ -51,30 +51,39 @@
     <div class="row aln-center">
       <div class="col-12 col-12-medium col-12-small">
         <section class="box style1">
-          <table class="row-border hover table table-striped table-bordered">
+          <table class="row-border hover table">
             <thead>
               <tr>
-                <th scope="col">Rang</th>
-                <th scope="col">N°</th>
-                <th scope="col">Pilote/Co-pilote</th>
-                <th scope="col" class="d-none d-sm-table-cell">Vehicule</th>
-                <th scope="col" class="d-none d-sm-table-cell">Group</th>
-                <th scope="col">Temps</th>
+                <th style="width: 60px;">Rang</th>
+                <th style="width: 60px;">N°</th>
+                <th style="width: 200px;">Pilote</th>
+                <th style="width: 200px;">Co-pilote</th>
+                <th style="width: 200px;">Vehicule</th>
+                <th style="width: 60px;">Group</th>
+                <th>Temps</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let s of class_nonSSV; let i = index">
-                <td>{{i+1}} </td>
-                <th scope="row">{{s.numero}} </th>
-                <td>
-                  <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+              <tr *ngFor="let s of class_nonSSV; let i = index" class="text-decoration: line-through;">
+                
+                
+                <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}" >{{i+1}} </td>
+                
+                <td >{{s.numero}} </td>
+                <td style="text-align:left;">
+                  <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
                   {{s.prenom_pilote}} {{s.nom_pilote}} <br/>
-                  <img src="https://restcountries.eu/data/{{s.nat_copilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                </td>
+                <td style="text-align:left;">
+                  <img src="https://restcountries.eu/data/{{s.nat_copilote | lowercase}}.svg" alt="drapeau pays"
+                    class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
                   {{s.prenom_copilote}} {{s.nom_copilote}}
                 </td>
-                <td class="d-none d-sm-table-cell">{{s.marque_vehicule}}</td>
-                <td class="d-none d-sm-table-cell">{{s.classgroup}}</td>
-                <td>{{s.arc|secondToTime}}</td>
+                <td style="text-align:left;">
+                  <img src="{{ s.logo_voiture }}" alt="logo {{s.marque_vehicule }}" class="img-fluid img-thumbnails" style="height:25px;width:25px;">
+                  {{s.marque_vehicule}}</td>
+                <td >{{s.classgroup}}</td>
+                <td >{{s.arc|secondToTime}}</td>
               </tr>
             </tbody>
           </table>
@@ -95,27 +104,36 @@
           <table class="row-border hover table table-striped table-bordered">
             <thead>
               <tr>
-                <th scope="col">Rang</th>
-                <th scope="col">N°</th>
-                <th scope="col">Pilote/Co-pilote</th>
-                <th scope="col" class="d-none d-sm-table-cell">Vehicule</th>
-                <th scope="col" class="d-none d-sm-table-cell">Group</th>
-                <th scope="col">Temps</th>
+                <th style="width: 60px;">Rang</th>
+                <th style="width: 60px;">N°</th>
+                <th style="width: 200px;">Pilote</th>
+                <th style="width: 200px;">Co-pilote</th>
+                <th style="width: 200px;">Vehicule</th>
+                <th style="width: 60px;">Group</th>
+                <th>Temps</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let s of class_SSV; let i = index">
-                <td>{{i+1}} </td>
-                <th scope="row">{{s.numero}} </th>
-                <td>
-                  <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
-                  {{s.prenom_pilote}} {{s.nom_pilote}} <br/>
-                  <img src="https://restcountries.eu/data/{{s.nat_copilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
-                  {{s.prenom_copilote}} {{s.nom_copilote}}
-                </td>
-                <td class="d-none d-sm-table-cell">{{s.marque_vehicule}}</td>
-                <td class="d-none d-sm-table-cell">{{s.classgroup}}</td>
-                <td>{{s.arc|secondToTime}}</td>
+              <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}">{{i+1}} </td>
+              
+              <td>{{s.numero}} </td>
+              <td style="text-align:left;">
+                <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays"
+                  class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
+                {{s.prenom_pilote}} {{s.nom_pilote}} <br />
+              </td>
+              <td style="text-align:left;">
+                <img src="https://restcountries.eu/data/{{s.nat_copilote | lowercase}}.svg" alt="drapeau pays"
+                  class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
+                {{s.prenom_copilote}} {{s.nom_copilote}}
+              </td>
+              <td style="text-align:left;">
+                <img src="{{ s.logo_voiture }}" alt="logo {{s.marque_vehicule }}" class="img-fluid img-thumbnails"
+                  style="height:25px;width:25px;">
+                {{s.marque_vehicule}}</td>
+              <td>{{s.classgroup}}</td>
+              <td>{{s.arc|secondToTime}}</td>
               </tr>
             </tbody>
           </table>

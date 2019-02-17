@@ -24,3 +24,41 @@
 .ui-steps.steps-custom .ui-steps-item .ui-steps-title {
     color: #555555;
 }
+
+.table td, .table th {
+    padding: .3rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    font-weight: bold;
+}
+
+.img-thumbnails {
+    padding: .25rem;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: auto;
+}
+
+table{
+border-collapse:collapse;
+}
+
+.strike 
+{
+	background-position:center;
+	background-repeat:repeat-x;
+	background-color:#e2c45e;
+}
+
+.first{
+    background-color:#000;
+    color: #FFF;
+}
+.second{
+    background-color:#555555b0;
+    color: #FFF;
+}
+.third{
+    background-color:#555555b0;
+    color: #FFF;
+}

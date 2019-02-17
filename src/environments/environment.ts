@@ -2,9 +2,10 @@
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// apiUrl: 'https://rallye-api.herokuapp.com',
 export const environment = {
   production: false,
-  apiUrl: 'https://rallye-api.herokuapp.com',
+  apiUrl: 'http://63.33.110.240:3000',
   apiCountries:'https://restcountries.eu/rest/v2'
 };
 
