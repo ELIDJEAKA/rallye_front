@@ -1,8 +1,7 @@
-<article id="work" class="wrapper style2">
+<!-- <article id="work" class="wrapper style2">
   <div class="container">
     <header>
       <h2 *ngIf="speciale">Classement général officieux (Hors Pénalité) de la spéciale {{speciale.id}} : {{speciale.nom_speciale}} </h2>
-      <!-- <p>Odi turpis amet sed consequat eget posuere consequat.</p> -->
     </header>
     <div class="row aln-center">
       <div class="col-12 col-12-medium col-12-small">
@@ -22,7 +21,11 @@
               <tr *ngFor="let classement of classements; let i = index">
                 <td>{{i+1}} </td>
                 <th scope="row">{{classement.pilote.numero}} </th>
-                <td>{{classement.pilote.prenom_pilote}} {{classement.pilote.nom_pilote}} / {{classement.pilote.prenom_copilote}} {{classement.pilote.nom_copilote}}
+                <td>
+                  <img src="https://restcountries.eu/data/{{classement.pilote.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                  {{classement.pilote.prenom_pilote}} {{classement.pilote.nom_pilote}} <br/>
+                  <img src="https://restcountries.eu/data/{{classement.pilote.nat_copilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                  {{classement.pilote.prenom_copilote}} {{classement.pilote.nom_copilote}}
                 </td>
                 <td class="d-none d-sm-table-cell">{{classement.pilote.marque_vehicule}}</td>
                 <td class="d-none d-sm-table-cell">{{classement.pilote.classgroup}}</td>
@@ -30,65 +33,16 @@
               </tr>
             </tbody>
           </table>
-          <!-- <span class="icon featured fa-comments-o"></span>
-          <h3>Consequat lorem</h3>
-          <p>Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore.</p> -->
         </section>
       </div>
 
     </div>
-    <!-- <footer>
-      <p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
-      <a href="#portfolio" class="button large scrolly">See some of my recent work</a>
-    </footer> -->
   </div>
-</article>
-<article id="SSV" class="wrapper style2">
-  <div class="container">
-    <header>
-      <h2 *ngIf="speciale">Classement SSV officieux (Hors Pénalité) de la spéciale {{speciale.id}} : {{speciale.nom_speciale}}</h2>
-      <!-- <p>Odi turpis amet sed consequat eget posuere consequat.</p> -->
-    </header>
-    <div class="row aln-center">
-      <div class="col-12 col-12-medium col-12-small">
-        <section class="box style1">
-          <table class="row-border hover table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">Rang</th>
-                <th scope="col">N°</th>
-                <th scope="col">Pilote/Co-pilote</th>
-                <th scope="col" class="d-none d-sm-table-cell">Vehicule</th>
-                <th scope="col" class="d-none d-sm-table-cell">Group</th>
-                <th scope="col">Temps</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let s of class_SSV; let i = index">
-                <td>{{i+1}} </td>
-                <th scope="row">{{s.pilote.numero}} </th>
-                <td>{{s.pilote.prenom_pilote}} {{s.pilote.nom_pilote}} / {{s.pilote.prenom_copilote}} {{s.pilote.nom_copilote}}
-                </td>
-                <td class="d-none d-sm-table-cell">{{s.pilote.marque_vehicule}}</td>
-                <td class="d-none d-sm-table-cell">{{s.pilote.classgroup}}</td>
-                <td>{{s.temps|secondToTime}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </div>
-    </div>
-    <!-- <footer>
-      <p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
-      <a href="#portfolio" class="button large scrolly">See some of my recent work</a>
-    </footer> -->
-  </div>
-</article>
+</article> -->
 <article id="NONSSV" class="wrapper style2">
   <div class="container">
     <header>
       <h2 *ngIf="speciale">Classement 4WD/2WD officieux (Hors Pénalité) de la spéciale {{speciale.id}} : {{speciale.nom_speciale}}</h2>
-      <!-- <p>Odi turpis amet sed consequat eget posuere consequat.</p> -->
     </header>
     <div class="row aln-center">
       <div class="col-12 col-12-medium col-12-small">
@@ -108,7 +62,53 @@
               <tr *ngFor="let s of class_nonSSV; let i = index">
                 <td>{{i+1}} </td>
                 <th scope="row">{{s.pilote.numero}} </th>
-                <td>{{s.pilote.prenom_pilote}} {{s.pilote.nom_pilote}} / {{s.pilote.prenom_copilote}} {{s.pilote.nom_copilote}}
+                <td>
+                  <img src="https://restcountries.eu/data/{{s.pilote.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                  {{s.pilote.prenom_pilote}} {{s.pilote.nom_pilote}} <br/>
+                  <img src="https://restcountries.eu/data/{{s.pilote.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                   {{s.pilote.prenom_copilote}} {{s.pilote.nom_copilote}}
+                </td>
+                <td class="d-none d-sm-table-cell">{{s.pilote.marque_vehicule}}</td>
+                <td class="d-none d-sm-table-cell">{{s.pilote.classgroup}}</td>
+                <td>{{s.temps|secondToTime}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<article id="SSV" class="wrapper style2">
+  <div class="container">
+    <header>
+      <h2 *ngIf="speciale">Classement SSV officieux (Hors Pénalité) de la spéciale {{speciale.id}} : {{speciale.nom_speciale}}</h2>
+    </header>
+    <div class="row aln-center">
+      <div class="col-12 col-12-medium col-12-small">
+        <section class="box style1">
+          <table class="row-border hover table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Rang</th>
+                <th scope="col">N°</th>
+                <th scope="col">Pilote/Co-pilote</th>
+                <th scope="col" class="d-none d-sm-table-cell">Vehicule</th>
+                <th scope="col" class="d-none d-sm-table-cell">Group</th>
+                <th scope="col">Temps</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let s of class_SSV; let i = index">
+                <td>{{i+1}} </td>
+                <th scope="row">{{s.pilote.numero}} </th>
+                <td>
+                  <img src="https://restcountries.eu/data/{{s.pilote.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                  {{s.pilote.prenom_pilote}} {{s.pilote.nom_pilote}}  <br/>
+                  <img src="https://restcountries.eu/data/{{s.pilote.nat_copilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                  {{s.pilote.prenom_copilote}} {{s.pilote.nom_copilote}}
                 </td>
                 <td class="d-none d-sm-table-cell">{{s.pilote.marque_vehicule}}</td>
                 <td class="d-none d-sm-table-cell">{{s.pilote.classgroup}}</td>

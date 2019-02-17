@@ -22,7 +22,11 @@
               <tr *ngFor="let classement of classements; let i = index">
                 <td>{{i+1}} </td>
                 <th scope="row">{{classement.numero}} </th>
-                <td>{{classement.prenom_pilote}} {{classement.nom_pilote}} / {{classement.prenom_copilote}} {{classement.nom_copilote}}
+                <td>
+                  <img src="https://restcountries.eu/data/{{classement.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                  {{classement.prenom_pilote}} {{classement.nom_pilote}} <br/>
+                  <img src="https://restcountries.eu/data/{{classement.nat_copilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                   {{classement.prenom_copilote}} {{classement.nom_copilote}}
                 </td>
                 <td class="d-none d-sm-table-cell">{{classement.marque_vehicule}}</td>
                 <td class="d-none d-sm-table-cell">{{classement.classgroup}}</td>
@@ -42,6 +46,7 @@
   <div class="container">
     <header>
       <h2>Classement officieux (Hors Pénalité) 4WD/2WD</h2>
+      <!-- <p>Odi turpis amet sed consequat eget posuere consequat.</p> -->
     </header>
     <div class="row aln-center">
       <div class="col-12 col-12-medium col-12-small">
@@ -61,7 +66,11 @@
               <tr *ngFor="let s of class_nonSSV; let i = index">
                 <td>{{i+1}} </td>
                 <th scope="row">{{s.numero}} </th>
-                <td>{{s.prenom_pilote}} {{s.nom_pilote}} / {{s.prenom_copilote}} {{s.nom_copilote}}
+                <td>
+                  <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                  {{s.prenom_pilote}} {{s.nom_pilote}} <br/>
+                  <img src="https://restcountries.eu/data/{{s.nat_copilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                  {{s.prenom_copilote}} {{s.nom_copilote}}
                 </td>
                 <td class="d-none d-sm-table-cell">{{s.marque_vehicule}}</td>
                 <td class="d-none d-sm-table-cell">{{s.classgroup}}</td>
@@ -98,7 +107,11 @@
               <tr *ngFor="let s of class_SSV; let i = index">
                 <td>{{i+1}} </td>
                 <th scope="row">{{s.numero}} </th>
-                <td>{{s.prenom_pilote}} {{s.nom_pilote}} / {{s.prenom_copilote}} {{s.nom_copilote}}
+                <td>
+                  <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                  {{s.prenom_pilote}} {{s.nom_pilote}} <br/>
+                  <img src="https://restcountries.eu/data/{{s.nat_copilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
+                  {{s.prenom_copilote}} {{s.nom_copilote}}
                 </td>
                 <td class="d-none d-sm-table-cell">{{s.marque_vehicule}}</td>
                 <td class="d-none d-sm-table-cell">{{s.classgroup}}</td>
@@ -109,5 +122,6 @@
         </section>
       </div>
     </div>
+
   </div>
 </article>
