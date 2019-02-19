@@ -39,14 +39,15 @@
     </div>
   </div>
 </article> -->
-<article id="NONSSV" class="wrapper style2">
+<article id="NONSSV" class="style2">
   <div class="container">
     <header>
-      <h3 *ngIf="speciale" class="text-center text-danger" style="margin-top:5%;">Classement 4WD/2WD NON Officiel (Hors Pénalité) SS {{speciale.id}} : {{speciale.nom_speciale}}</h3>
+      <h3 *ngIf="speciale" class="text-center text-warning bg-dark d-none d-sm-block" style="margin-top:3%; padding:1%; font-weight:bold;">Classement 4WD/2WD NON Officiel (Hors Pénalité) SS {{speciale.id}} : {{speciale.nom_speciale}}</h3>
+      <h5 *ngIf="speciale" class="text-center text-warning bg-dark d-sm-none" style="margin-top:3%; padding:1%; font-weight:bold;">Classement 4WD/2WD NON Officiel (Hors Pénalité) SS {{speciale.id}} : {{speciale.nom_speciale}}</h5>
     </header>
     <div class="row aln-center">
       <div class="col-12 col-12-medium col-12-small">
-        <section class="box style1">
+        <section class="bg-white style1">
           <table class="row-border hover table table-striped table-bordered">
             <thead>
               <tr>
@@ -95,11 +96,12 @@
 <article id="SSV" class="">
   <div class="container">
     <header>
-      <h3 *ngIf="speciale" class="text-center text-danger" style="margin-top:5%;">Classement SSV NON Officiel (Hors Pénalité) SS {{speciale.id}} : {{speciale.nom_speciale}}</h3>
+      <h3 *ngIf="speciale" class="text-center text-warning bg-dark d-none d-sm-block" style="margin-top:3%; padding:1%; font-weight:bold;">Classement SSV NON Officiel (Hors Pénalité) SS {{speciale.id}} : {{speciale.nom_speciale}}</h3>
+      <h5 *ngIf="speciale" class="text-center text-warning bg-dark d-sm-none" style="margin-top:3%; padding:1%; font-weight:bold;">Classement SSV NON Officiel (Hors Pénalité) SS {{speciale.id}} : {{speciale.nom_speciale}}</h5>
     </header>
     <div class="row aln-center">
       <div class="col-12 col-12-medium col-12-small">
-        <section class="box style1">
+        <section class="bg-white style1">
           <table class="row-border hover table table-striped table-bordered">
             <thead>
               <tr>
