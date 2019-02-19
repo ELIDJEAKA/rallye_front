@@ -46,7 +46,7 @@ display: block;
     white-space: nowrap;
 }
 
-.strike 
+.strike
 {
 	background-position:center;
 	background-repeat:repeat-x;
@@ -64,4 +64,7 @@ display: block;
 .third{
     background-color:#555555b0;
     color: #FFF;
+}
+article{
+  font-family: 'Work Sans', sans-serif !important;
 }

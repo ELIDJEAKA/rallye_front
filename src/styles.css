@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  background-image: url("assets/images/kris-meeke.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.body{
+  background-image: url("assets/images/kris-meeke.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+	opacity:0.75;
+}
+html{
+   height: 100%;
+}
