@@ -92,10 +92,10 @@
                 <td class="d-none d-md-table-cell">{{s.classgroup}}</td>
                 <td style="font-size:13px;">
                   {{s.arc|secondToTime}} <br/>
-                  <span class="text-info">
+                  <span class="text-info" *ngIf="i != 0">
                     + {{ s.arc - class_nonSSV[0].arc |secondToTime}}
                   </span>
-                  <span *ngIf="i == 0" class="text-info"> 00:00  </span>
+                  <span *ngIf="i == 0" class="text-info"> + 00:00  </span>
                 </td>
               </tr>
             </tbody>
@@ -151,10 +151,10 @@
               <td class="d-none d-md-table-cell">{{s.classgroup}}</td>
               <td style="font-size:13px;">
                 {{s.arc|secondToTime}} <br/>
-                <span class="text-info">
+                <span class="text-info" *ngIf="i != 0">
                   + {{ s.arc - class_SSV[0].arc |secondToTime}}
                 </span>
-                <span *ngIf="i == 0" class="text-info"> 00:00  </span>
+                <span *ngIf="i == 0" class="text-info"> + 00:00  </span>
               </td>
               </tr>
             </tbody>
