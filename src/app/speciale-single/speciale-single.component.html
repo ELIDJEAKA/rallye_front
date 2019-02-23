@@ -91,7 +91,7 @@
                     style="height:25px;width:25px;">
                   </span><span class="d-none d-lg-block">{{s.pilote.marque_vehicule}}</span>
                 </td>
-                <td [ngClass]="{'strike': s.pilote.abandon==1}" class="d-none d-md-table-cell">{{s.pilote.classgroup}}</td>
+                <td style="text-align:center;" [ngClass]="{'strike': s.pilote.abandon==1}" class="d-none d-md-table-cell">{{s.pilote.classgroup}}</td>
                 <td [ngClass]="{'strike': s.pilote.abandon==1}" style="font-size:13px;" class="text-center">
                   {{s.temps|secondToTime}}  <i [ngClass]="{'fa fa-window-close': s.pilote.abandon==1}"></i> <br/>
                   <span class="text-info" *ngIf="i != 0">
@@ -154,7 +154,7 @@
                     style="height:25px;width:25px;">
                   </span><span class="d-none d-lg-block">{{s.pilote.marque_vehicule}}</span>
                 </td>
-                <td [ngClass]="{'strike': s.pilote.abandon==1}" class="d-none d-md-table-cell">{{s.pilote.classgroup}}</td>
+                <td style="text-align:center;" [ngClass]="{'strike': s.pilote.abandon==1}" class="d-none d-md-table-cell">{{s.pilote.classgroup}}</td>
                 <td [ngClass]="{'strike': s.pilote.abandon==1}" style="font-size:13px;" class="text-center">
                   {{s.temps|secondToTime}} <i [ngClass]="{'fa fa-window-close': s.pilote.abandon==1}"></i> <br/>
                   <span class="text-info" *ngIf="i != 0">
