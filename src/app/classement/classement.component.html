@@ -46,7 +46,8 @@
 <!-- <article id="NONSSV" class="wrapper style2"> -->
 <div class="" style="margin:1%;">
   <img class="img-fluid img-thumbnail left" src="./assets/images/bandama-logo.jpg" alt="" height="7%" width="15%">
-  <img class="img-fluid img-thumbnail" src="./assets/images/fisa.jpg" alt="" height="7%" width="15%" style="margin-left:70%;">
+  <a href="https://iptek-ci.business.site/" target="_blank"><img class="img-fluid img-thumbnail" src="./assets/images/ipteck.jpg" alt="" height="7%" width="7%" style="margin-left:30%;"></a>
+  <img class="img-fluid img-thumbnail" src="./assets/images/fisa.jpg" alt="" height="7%" width="15%" style="margin-left:30%;">
 </div> <br/>
 <article id="NONSSV" class="">
   <div class="container">
@@ -60,13 +61,14 @@
           <table class="row-border hover table table-striped table-bordered">
             <thead>
               <tr>
-                <th >Rang</th>
-                <th >N°</th>
-                <th >Pilote</th>
-                <th  class="d-none d-md-table-cell">Co-pilote</th>
-                <th >Vehicule</th>
-                <th  class="d-none d-md-table-cell">Groupe</th>
-                <th >Temps</th>
+                <th>Rang</th>
+                <th>N°</th>
+                <th style="width:10%;">Image</th>
+                <th style="width:10%;">Pilote</th>
+                <th style="width:20%;" class="d-none d-md-table-cell">Co-pilote</th>
+                <th style="width:20%;">Vehicule</th>
+                <th style="width:20%;" class="d-none d-md-table-cell">Group</th>
+                <th style="width:20%;">Temps</th>
               </tr>
             </thead>
             <tbody>
@@ -74,11 +76,13 @@
                 <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}" >{{i+1}} </td>
 
                 <td style="width:5%;">{{s.numero}} </td>
-                <td style="text-align:center;width:10%;">
+                <td><img src="/src/assets/images/PILOTE COPILOTE/ID/{{ s.numero }}.png" alt="drapeau pays"
+                  class="img-thumbnails img-fluid photo_pilote"> </td>
+                <td style="text-align:left;width:10%;">
                   <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
                   {{s.prenom_pilote}} {{s.nom_pilote}} <br/>
                 </td>
-                <td style="text-align:center;" class="d-none d-md-table-cell">
+                <td style="text-align:left;" class="d-none d-md-table-cell">
                   <img src="https://restcountries.eu/data/{{s.nat_copilote | lowercase}}.svg" alt="drapeau pays"
                     class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
                   {{s.prenom_copilote}} {{s.nom_copilote}}
@@ -120,10 +124,11 @@
               <tr>
                 <th>Rang</th>
                 <th>N°</th>
-                <th style="width:20%;">Pilote</th>
+                <th style="width:10%;">Image</th>
+                <th style="width:10%;">Pilote</th>
                 <th style="width:20%;" class="d-none d-md-table-cell">Co-pilote</th>
                 <th style="width:20%;">Vehicule</th>
-                <th style="width:20%;" class="d-none d-md-table-cell">Groupe</th>
+                <th style="width:20%;" class="d-none d-md-table-cell">Group</th>
                 <th style="width:20%;">Temps</th>
               </tr>
             </thead>
@@ -132,17 +137,19 @@
               <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}">{{i+1}} </td>
 
               <td style="width:5%;">{{s.numero}} </td>
-              <td style="text-align:left;width:5%;">
+              <td><img src="/src/assets/images/PILOTE COPILOTE/ID/{{ s.numero }}.png" alt="drapeau pays"
+                  class="img-thumbnails img-fluid photo_pilote"> </td>
+              <td style="text-align:left;width:10%;">
                 <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays"
                   class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
                 {{s.prenom_pilote}} {{s.nom_pilote}} <br />
               </td>
-              <td style="text-align:center;" class="d-none d-md-table-cell">
+              <td style="text-align:left;" class="d-none d-md-table-cell">
                 <img src="https://restcountries.eu/data/{{s.nat_copilote | lowercase}}.svg" alt="drapeau pays"
                   class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
                 {{s.prenom_copilote}} {{s.nom_copilote}}
               </td>
-              <td style="text-align:center;">
+              <td style="text-align:left;">
                 <span>
                   <img src="{{ s.logo_voiture }}" alt="logo {{s.marque_vehicule }}" class="img-fluid img-thumbnails"
                   style="height:25px;width:25px;">
@@ -166,6 +173,11 @@
   </div>
 </article>
 
+<div style="width:100%;">
+ 
+    <h3 class="text-center d-none d-sm-block" style="margin-top:3%; padding:1%; font-weight:bold;background:silver;">
+      <span style="font-size: 16px;"> Copyright 2019 <a href="http://iptek-ci.com" target="_blank"> IPTEK-CI</a></span>
+      <span style="font-size: 16px;float: right"><a href="https://www.facebook.com/iptekci/" target="_blank"> <i class="fa fa-facebook"></i> </a></span></h3>
 
-
+</div>
 <!-- </div> -->

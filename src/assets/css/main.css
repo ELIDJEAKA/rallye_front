@@ -234,7 +234,10 @@ input, select, textarea {
 		}
 
 		@media screen and (max-width: 1680px) {
-
+			table tr td .photo_pilote{
+				width: 100px;
+				height: 50px;
+			}
 			.container {
 				width: 1200px;
 			}
@@ -2229,7 +2232,7 @@ input, select, textarea {
 	@media screen and (max-width: 736px) {
 
 		/* Basic */
-
+			
 			body {
 				padding-top: 44px;
 			}
