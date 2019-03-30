@@ -108,7 +108,7 @@
     </div>
   </div>
 </article> -->
-<article id="NONARC" class="style2">
+<!-- <article id="NONARC" class="style2">
   <div class="container">
     <header>
       <h3 *ngIf="speciale" class="text-center text-warning bg-dark d-none d-sm-block" style="margin-top:3%; padding:1%; font-weight:bold;">Classement des NATIONAUX NON Officiel (Hors Pénalité) SS {{speciale.id}} : {{speciale.nom_speciale}}</h3>
@@ -122,7 +122,7 @@
               <tr>
                 <th>Rang</th>
                 <th>N°</th>
-                <!-- <th style="width:10%;">Image</th> -->
+                <th style="width:10%;">Image</th>
                 <th style="width:10%;">Pilote</th>
                 <th style="width:20%;" class="d-none d-md-table-cell">Co-pilote</th>
                 <th style="width:20%;">Vehicule</th>
@@ -135,8 +135,8 @@
                 <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0,'strike': s.pilote.abandon==1}">{{i+1}} </td>
 
                 <td [ngClass]="{'strike': s.pilote.abandon==1}">{{s.pilote.numero}} </td>
-                <!-- <td><img src="assets/images/PILOTE COPILOTE/ID/{{ s.pilote.numero }}.png" alt="drapeau pays"
-                    class="img-thumbnails img-fluid photo_pilote"> </td> -->
+                <td><img src="assets/images/PILOTE COPILOTE/ID/{{ s.pilote.numero }}.png" alt="drapeau pays"
+                    class="img-thumbnails img-fluid photo_pilote"> </td>
                 <td style="text-align:left;" [ngClass]="{'strike': s.pilote.abandon==1}">
                   <img src="https://restcountries.eu/data/{{s.pilote.nat_pilote | lowercase}}.svg" alt="drapeau pays"
                     class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
@@ -160,6 +160,76 @@
                     + {{ s.temps - class_nonSSV[0].temps |secondToTime}}
                   </span>
                   <span *ngIf="i == 0" class="text-info"> + 00:00  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+</article> -->
+
+
+
+
+<article id="NONSSV" class="style2">
+  <div class="container">
+    <header>
+      <h3 *ngIf="speciale" class="text-center text-warning bg-dark d-none d-sm-block"
+        style="margin-top:3%; padding:1%; font-weight:bold;">Classement 4WD/2WD NON Officiel (Hors Pénalité) SS
+        {{speciale.id}} : {{speciale.nom_speciale}}</h3>
+      <h5 *ngIf="speciale" class="text-center text-warning bg-dark d-sm-none"
+        style="margin-top:3%; padding:1%; font-weight:bold;">Classement 4WD/2WD NON Officiel (Hors Pénalité) SS
+        {{speciale.id}} : {{speciale.nom_speciale}}</h5>
+    </header>
+    <div class="row aln-center">
+      <div class="col-12 col-12-medium col-12-small">
+        <section class="bg-white style1">
+          <table class="row-border hover table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Rang</th>
+                <th>N°</th>
+                <!-- <th style="width:10%;">Image</th> -->
+                <th style="width:10%;">Pilote</th>
+                <th style="width:20%;" class="d-none d-md-table-cell">Co-pilote</th>
+                <th style="width:20%;">Vehicule</th>
+                <th style="width:20%;" class="d-none d-md-table-cell">Group</th>
+                <th style="width:20%;">Temps</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let s of class_nonSSV; let i = index">
+                <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0,'strike': s.pilote.abandon==1}">{{i+1}} </td>
+
+                <td [ngClass]="{'strike': s.pilote.abandon==1}">{{s.pilote.numero}} </td>
+                <!-- <td><img src="assets/images/PILOTE COPILOTE/ID/{{ s.pilote.numero }}.png" alt="drapeau pays"
+                    class="img-thumbnails img-fluid photo_pilote"> </td> -->
+                <td style="text-align:left;" [ngClass]="{'strike': s.pilote.abandon==1}">
+                  <img src="https://restcountries.eu/data/{{s.pilote.nat_pilote | lowercase}}.svg" alt="drapeau pays"
+                    class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
+                  {{s.pilote.prenom_pilote}} {{s.pilote.nom_pilote}} <br />
+                </td>
+                <td style="text-align:left;" [ngClass]="{'strike': s.pilote.abandon==1}" class="d-none d-md-table-cell">
+                  <img src="https://restcountries.eu/data/{{s.pilote.nat_pilote | lowercase}}.svg" alt="drapeau pays"
+                    class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
+                  {{s.pilote.prenom_copilote}} {{s.pilote.nom_copilote}}
+                </td>
+                <td style="text-align:center;" [ngClass]="{'strike': s.pilote.abandon==1}">
+                  <span>
+                    <img src="{{ s.pilote.logo_voiture }}" alt="logo {{s.pilote.marque_vehicule }}"
+                      class="img-fluid img-thumbnails" style="height:25px;width:25px;">
+                  </span><span class="d-none d-lg-block">{{s.pilote.marque_vehicule}}</span>
+                </td>
+                <td style="text-align:center;" [ngClass]="{'strike': s.pilote.abandon==1}"
+                  class="d-none d-md-table-cell">{{s.pilote.classgroup}}</td>
+                <td [ngClass]="{'strike': s.pilote.abandon==1}" style="font-size:13px;" class="text-center">
+                  {{s.temps|secondToTime}} <i [ngClass]="{'fa fa-window-close': s.pilote.abandon==1}"></i> <br />
+                  <span class="text-info" *ngIf="i != 0">
+                    + {{ s.temps - class_nonSSV[0].temps |secondToTime}}
+                  </span>
+                  <span *ngIf="i == 0" class="text-info"> + 00:00 </span>
                 </td>
               </tr>
             </tbody>
@@ -223,74 +293,6 @@
                     + {{ s.temps - class_SSV[0].temps |secondToTime}}
                   </span>
                   <span *ngIf="i == 0" class="text-info"> + 00:00  </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </div>
-    </div>
-  </div>
-</article>
-
-
-<article id="NONSSV" class="style2">
-  <div class="container">
-    <header>
-      <h3 *ngIf="speciale" class="text-center text-warning bg-dark d-none d-sm-block"
-        style="margin-top:3%; padding:1%; font-weight:bold;">Classement 4WD/2WD NON Officiel (Hors Pénalité) SS
-        {{speciale.id}} : {{speciale.nom_speciale}}</h3>
-      <h5 *ngIf="speciale" class="text-center text-warning bg-dark d-sm-none"
-        style="margin-top:3%; padding:1%; font-weight:bold;">Classement 4WD/2WD NON Officiel (Hors Pénalité) SS
-        {{speciale.id}} : {{speciale.nom_speciale}}</h5>
-    </header>
-    <div class="row aln-center">
-      <div class="col-12 col-12-medium col-12-small">
-        <section class="bg-white style1">
-          <table class="row-border hover table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th>Rang</th>
-                <th>N°</th>
-                <!-- <th style="width:10%;">Image</th> -->
-                <th style="width:10%;">Pilote</th>
-                <th style="width:20%;" class="d-none d-md-table-cell">Co-pilote</th>
-                <th style="width:20%;">Vehicule</th>
-                <th style="width:20%;" class="d-none d-md-table-cell">Group</th>
-                <th style="width:20%;">Temps</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let s of class_nonSSV; let i = index">
-                <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0,'strike': s.pilote.abandon==1}">{{i+1}} </td>
-
-                <td [ngClass]="{'strike': s.pilote.abandon==1}">{{s.pilote.numero}} </td>
-                <!-- <td><img src="assets/images/PILOTE COPILOTE/ID/{{ s.pilote.numero }}.png" alt="drapeau pays"
-                    class="img-thumbnails img-fluid photo_pilote"> </td> -->
-                <td style="text-align:left;" [ngClass]="{'strike': s.pilote.abandon==1}">
-                  <img src="https://restcountries.eu/data/{{s.pilote.nat_pilote | lowercase}}.svg" alt="drapeau pays"
-                    class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
-                  {{s.pilote.prenom_pilote}} {{s.pilote.nom_pilote}} <br />
-                </td>
-                <td style="text-align:left;" [ngClass]="{'strike': s.pilote.abandon==1}" class="d-none d-md-table-cell">
-                  <img src="https://restcountries.eu/data/{{s.pilote.nat_pilote | lowercase}}.svg" alt="drapeau pays"
-                    class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
-                  {{s.pilote.prenom_copilote}} {{s.pilote.nom_copilote}}
-                </td>
-                <td style="text-align:center;" [ngClass]="{'strike': s.pilote.abandon==1}">
-                  <span>
-                    <img src="{{ s.pilote.logo_voiture }}" alt="logo {{s.pilote.marque_vehicule }}"
-                      class="img-fluid img-thumbnails" style="height:25px;width:25px;">
-                  </span><span class="d-none d-lg-block">{{s.pilote.marque_vehicule}}</span>
-                </td>
-                <td style="text-align:center;" [ngClass]="{'strike': s.pilote.abandon==1}"
-                  class="d-none d-md-table-cell">{{s.pilote.classgroup}}</td>
-                <td [ngClass]="{'strike': s.pilote.abandon==1}" style="font-size:13px;" class="text-center">
-                  {{s.temps|secondToTime}} <i [ngClass]="{'fa fa-window-close': s.pilote.abandon==1}"></i> <br />
-                  <span class="text-info" *ngIf="i != 0">
-                    + {{ s.temps - class_nonSSV[0].temps |secondToTime}}
-                  </span>
-                  <span *ngIf="i == 0" class="text-info"> + 00:00 </span>
                 </td>
               </tr>
             </tbody>

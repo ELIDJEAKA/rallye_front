@@ -50,7 +50,7 @@
   <img class="img-fluid img-thumbnail" src="./assets/images/fisa.jpg" alt="" height="7%" width="15%" style="margin-left:30%;">
 </div> <br/>
 
-<article id="ARC" class="">
+<!-- <article id="ARC" class="">
   <div class="container">
     <header>
       <h3 class="text-center text-warning bg-dark d-none d-sm-block" style="margin-top:1%; padding:1%; font-weight:bold;">Classement Général Non Officiel (Hors Pénalité) ARC</h3>
@@ -64,7 +64,7 @@
               <tr>
                 <th>Rang</th>
                 <th>N°</th>
-                <!-- <th style="width:10%;">Image</th> -->
+                <th style="width:10%;">Image</th>
                 <th style="width:10%;">Pilote</th>
                 <th style="width:20%;" class="d-none d-md-table-cell">Co-pilote</th>
                 <th style="width:20%;">Vehicule</th>
@@ -77,8 +77,8 @@
                 <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}" >{{i+1}} </td>
 
                 <td style="width:5%;">{{s.numero}} </td>
-                <!-- <td><img src="assets/images/PILOTE COPILOTE/ID/{{ s.numero }}.png" alt="drapeau pays"
-                  class="img-thumbnails img-fluid photo_pilote"> </td> -->
+                <td><img src="assets/images/PILOTE COPILOTE/ID/{{ s.numero }}.png" alt="drapeau pays"
+                  class="img-thumbnails img-fluid photo_pilote"> </td>
                 <td style="text-align:left;width:10%;">
                   <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
                   {{s.prenom_pilote}} {{s.nom_pilote}} <br/>
@@ -109,12 +109,75 @@
       </div>
     </div>
   </div>
-</article>
-<article id="NONARC" class="">
+</article> -->
+<!-- <article id="NONARC" class="">
   <div class="container">
     <header>
       <h3 class="text-center text-warning bg-dark d-none d-sm-block" style="margin-top:1%; padding:1%; font-weight:bold;">Classement Général Non Officiel (Hors Pénalité) des NATIONAUX</h3>
       <h6 class="text-center text-warning bg-dark d-sm-none" style="margin-top:1%; padding:1%; font-weight:bold;">Classement Général Non Officiel (Hors Pénalité) des NATIONAUX</h6>
+    </header>
+    <div class="row aln-center">
+      <div class="col-12">
+        <section class="box style1">
+          <table class="row-border hover table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Rang</th>
+                <th>N°</th>
+                <th style="width:10%;">Image</th>
+                <th style="width:10%;">Pilote</th>
+                <th style="width:20%;" class="d-none d-md-table-cell">Co-pilote</th>
+                <th style="width:20%;">Vehicule</th>
+                <th style="width:20%;" class="d-none d-md-table-cell">Group</th>
+                <th style="width:20%;">Temps</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let s of tab_non_ARC; let i = index" class="text-decoration: line-through;">
+                <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}" >{{i+1}} </td>
+                <td style="width:5%;">{{s.numero}} </td>
+                <td><img src="assets/images/PILOTE COPILOTE/ID/{{ s.numero }}.png" alt="drapeau pays"
+                  class="img-thumbnails img-fluid photo_pilote"> </td>
+                <td style="text-align:left;width:10%;">
+                  <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
+                  {{s.prenom_pilote}} {{s.nom_pilote}} <br/>
+                </td>
+                <td style="text-align:left;" class="d-none d-md-table-cell">
+                  <img src="https://restcountries.eu/data/{{s.nat_copilote | lowercase}}.svg" alt="drapeau pays"
+                    class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
+                  {{s.prenom_copilote}} {{s.nom_copilote}}
+                </td>
+                <td style="text-align:center;">
+                  <span>
+                    <img src="{{ s.logo_voiture }}" alt="logo {{s.marque_vehicule }}" class="img-fluid img-thumbnails"
+                    style="height:25px;width:25px;">
+                  </span><span class="d-none d-lg-block">{{s.marque_vehicule}}</span>
+                </td>
+                <td class="d-none d-md-table-cell">{{s.classgroup}}</td>
+                <td style="font-size:13px;">
+                  {{s.arc|secondToTime}} <br/>
+                  <span class="text-info" *ngIf="i != 0">
+                    + {{ s.arc - class_nonSSV[0].arc |secondToTime}}
+                  </span>
+                  <span *ngIf="i == 0" class="text-info"> + 00:00  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+</article> -->
+
+<article id="NONSSV" class="">
+  <div class="container">
+    <header>
+      <h3 class="text-center text-warning bg-dark d-none d-sm-block"
+        style="margin-top:1%; padding:1%; font-weight:bold;">Classement Général Non Officiel (Hors Pénalité) 4WD/2WD
+      </h3>
+      <h6 class="text-center text-warning bg-dark d-sm-none" style="margin-top:1%; padding:1%; font-weight:bold;">
+        Classement Général Non Officiel (Hors Pénalité) 4WD/2WD</h6>
     </header>
     <div class="row aln-center">
       <div class="col-12">
@@ -133,14 +196,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let s of tab_non_ARC; let i = index" class="text-decoration: line-through;">
-                <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}" >{{i+1}} </td>
+              <tr *ngFor="let s of class_nonSSV; let i = index" class="text-decoration: line-through;">
+                <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}">{{i+1}} </td>
+
                 <td style="width:5%;">{{s.numero}} </td>
                 <!-- <td><img src="assets/images/PILOTE COPILOTE/ID/{{ s.numero }}.png" alt="drapeau pays"
-                  class="img-thumbnails img-fluid photo_pilote"> </td> -->
+                    class="img-thumbnails img-fluid photo_pilote"> </td> -->
                 <td style="text-align:left;width:10%;">
-                  <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
-                  {{s.prenom_pilote}} {{s.nom_pilote}} <br/>
+                  <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays"
+                    class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
+                  {{s.prenom_pilote}} {{s.nom_pilote}} <br />
                 </td>
                 <td style="text-align:left;" class="d-none d-md-table-cell">
                   <img src="https://restcountries.eu/data/{{s.nat_copilote | lowercase}}.svg" alt="drapeau pays"
@@ -150,16 +215,16 @@
                 <td style="text-align:center;">
                   <span>
                     <img src="{{ s.logo_voiture }}" alt="logo {{s.marque_vehicule }}" class="img-fluid img-thumbnails"
-                    style="height:25px;width:25px;">
+                      style="height:25px;width:25px;">
                   </span><span class="d-none d-lg-block">{{s.marque_vehicule}}</span>
                 </td>
                 <td class="d-none d-md-table-cell">{{s.classgroup}}</td>
                 <td style="font-size:13px;">
-                  {{s.arc|secondToTime}} <br/>
+                  {{s.arc|secondToTime}} <br />
                   <span class="text-info" *ngIf="i != 0">
                     + {{ s.arc - class_nonSSV[0].arc |secondToTime}}
                   </span>
-                  <span *ngIf="i == 0" class="text-info"> + 00:00  </span>
+                  <span *ngIf="i == 0" class="text-info"> + 00:00 </span>
                 </td>
               </tr>
             </tbody>
@@ -169,6 +234,9 @@
     </div>
   </div>
 </article>
+
+
+
 <article id="SSV" class="">
   <div class="container">
     <header>
@@ -231,70 +299,6 @@
       </div>
     </div>
 
-  </div>
-</article>
-<article id="NONSSV" class="">
-  <div class="container">
-    <header>
-      <h3 class="text-center text-warning bg-dark d-none d-sm-block"
-        style="margin-top:1%; padding:1%; font-weight:bold;">Classement Général Non Officiel (Hors Pénalité) 4WD/2WD
-      </h3>
-      <h6 class="text-center text-warning bg-dark d-sm-none" style="margin-top:1%; padding:1%; font-weight:bold;">
-        Classement Général Non Officiel (Hors Pénalité) 4WD/2WD</h6>
-    </header>
-    <div class="row aln-center">
-      <div class="col-12">
-        <section class="box style1">
-          <table class="row-border hover table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th>Rang</th>
-                <th>N°</th>
-                <th style="width:10%;">Image</th>
-                <th style="width:10%;">Pilote</th>
-                <th style="width:20%;" class="d-none d-md-table-cell">Co-pilote</th>
-                <th style="width:20%;">Vehicule</th>
-                <th style="width:20%;" class="d-none d-md-table-cell">Group</th>
-                <th style="width:20%;">Temps</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let s of class_nonSSV; let i = index" class="text-decoration: line-through;">
-                <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}">{{i+1}} </td>
-
-                <td style="width:5%;">{{s.numero}} </td>
-                <td><img src="assets/images/PILOTE COPILOTE/ID/{{ s.numero }}.png" alt="drapeau pays"
-                    class="img-thumbnails img-fluid photo_pilote"> </td>
-                <td style="text-align:left;width:10%;">
-                  <img src="https://restcountries.eu/data/{{s.nat_pilote | lowercase}}.svg" alt="drapeau pays"
-                    class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
-                  {{s.prenom_pilote}} {{s.nom_pilote}} <br />
-                </td>
-                <td style="text-align:left;" class="d-none d-md-table-cell">
-                  <img src="https://restcountries.eu/data/{{s.nat_copilote | lowercase}}.svg" alt="drapeau pays"
-                    class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
-                  {{s.prenom_copilote}} {{s.nom_copilote}}
-                </td>
-                <td style="text-align:center;">
-                  <span>
-                    <img src="{{ s.logo_voiture }}" alt="logo {{s.marque_vehicule }}" class="img-fluid img-thumbnails"
-                      style="height:25px;width:25px;">
-                  </span><span class="d-none d-lg-block">{{s.marque_vehicule}}</span>
-                </td>
-                <td class="d-none d-md-table-cell">{{s.classgroup}}</td>
-                <td style="font-size:13px;">
-                  {{s.arc|secondToTime}} <br />
-                  <span class="text-info" *ngIf="i != 0">
-                    + {{ s.arc - class_nonSSV[0].arc |secondToTime}}
-                  </span>
-                  <span *ngIf="i == 0" class="text-info"> + 00:00 </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </div>
-    </div>
   </div>
 </article>
 
