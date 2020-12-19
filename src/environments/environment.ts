@@ -5,7 +5,7 @@
 // apiUrl: 'https://rallye-api.herokuapp.com',
 export const environment = {
   production: false,
-  apiUrl: 'https://rallye-api.herokuapp.com',
+  apiUrl: 'http://rallye-api.herokuapp.com',
   apiCountries:'https://restcountries.eu/rest/v2'
 };
 
