@@ -15,7 +15,7 @@ import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { StepsModule } from 'primeng/steps';
 
-const config: SocketIoConfig = { url: 'http://rallye-api.herokuapp.com:3000', options: {} };
+const config: SocketIoConfig = { url: 'https://rallye-api.herokuapp.com', options: {} };
 
 
 @NgModule({
