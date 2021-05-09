@@ -39,6 +39,8 @@ export class ClassementComponent implements OnInit {
 
 
   getGenralClassification() {
+    console.log("test");
+    
     this.classementService.getGeneralClassification()
       .subscribe((data) => {
         console.log(data)

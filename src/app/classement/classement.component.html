@@ -50,16 +50,17 @@
                   {{s.prenom_copilote}} {{s.nom_copilote}}
                 </td>
                 <td style="text-align:center;">
-                  <span>
+                  <!-- <span>
                     <img src="{{ s.logo_voiture }}" alt="logo {{s.marque_vehicule }}" class="img-fluid img-thumbnails"
                       style="height:25px;width:25px;">
-                  </span><span class="d-none d-lg-block">{{s.marque_vehicule}}</span>
+                  </span> -->
+                  <span class="d-none d-lg-block">{{s.marque_vehicule}}</span>
                 </td>
                 <td class="d-none d-md-table-cell">{{s.classgroup}}</td>
                 <td style="font-size:13px;">
                   {{s.arc|secondToTime}} <br />
                   <span class="text-info" *ngIf="i != 0">
-                    + {{ s.arc - class_nonSSV[0].arc |secondToTime}}
+                    + {{ s.arc - classements[0].arc |secondToTime}}
                   </span>
                   <span *ngIf="i == 0" class="text-info"> + 00:00 </span>
                 </td>
@@ -320,9 +321,9 @@
   </div>
 </article>-->
 
-<div class="" style="margin:1%;">
-  <!--<img class="img-fluid img-thumbnail left" src="./assets/images/bandama-logo.jpg" alt="" height="7%" width="15%">-->
-  <div class="text-center my-3" width="7%">
+ <div class="" style="margin:1%;">
+  <!-- <img class="img-fluid img-thumbnail left" src="./assets/images/bandama-logo.jpg" alt="" height="7%" width="15%"> -->
+<!--  <div class="text-center my-3" width="7%">
     <span class="col-sm my-2">
       <img class="img-fluid img-thumbnail left" src="./assets/images/SSV/cacomiaf.jpeg" alt="" height="10%" width="10%">
     </span>
@@ -335,7 +336,7 @@
     <span class="col-sm" >
       <img class="img-fluid img-thumbnail left" src="./assets/images/SSV/orca.jpeg" alt="" height="10%" width="10%">
     </span>
-  </div>
+  </div> -->
   <!-- <img class="img-fluid img-thumbnail left" src="./assets/images/SSV/cacomiaf.jpeg" alt="" height="7%" width="15%">
   <img class="img-fluid img-thumbnail left" src="./assets/images/SSV/aboisso.jpeg" alt="" height="7%" width="15%"> -->
   <a href="https://iptek-ci.business.site/" target="_blank"><img class="img-fluid img-thumbnail" src="./assets/images/11252763_1417634598557831_3474400750146319604_o.jpg" alt="" height="100%" width="12%" style="margin-left:10%;"></a>

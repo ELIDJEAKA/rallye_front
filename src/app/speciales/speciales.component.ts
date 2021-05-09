@@ -14,12 +14,18 @@ export class SpecialesComponent implements OnInit {
   ramdom:number;
   tab_images = [
     
-    "/assets/images/SSV/ssv1.jpeg",
-    "/assets/images/SSV/ssv2.jpeg",
-    "/assets/images/SSV/ssv4.jpeg",
-    "/assets/images/SSV/ssv5.jpeg",
-    "/assets/images/SSV/ssv6.jpeg",
-    "/assets/images/SSV/ssv7.jpeg",
+    "/assets/images/WRC/1.jpg",
+    "/assets/images/WRC/2.jpg",
+    "/assets/images/WRC/3.jpg",
+    "/assets/images/WRC/4.jpg",
+    "/assets/images/WRC/5.jpg",
+    "/assets/images/WRC/6.jpeg",
+    "/assets/images/WRC/7.jpeg",
+    "/assets/images/WRC/8.jpeg",
+    "/assets/images/WRC/9.jpeg",
+    "/assets/images/WRC/10.jpeg",
+    "/assets/images/WRC/11.jpeg",
+    "/assets/images/WRC/12.jpeg",
   ]
   ngOnInit() {
     this.getAllSpeciales()
