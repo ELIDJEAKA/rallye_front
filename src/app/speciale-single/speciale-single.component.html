@@ -1,51 +1,116 @@
-<article id="work" class="">
-  <div class="container">
-    <header>
-      <h2 *ngIf="speciale">Classement général officieux (Hors Pénalité) de la spéciale {{speciale.id}} : {{speciale.nom_speciale}} </h2>
-    </header>
-    <div class="row aln-center">
-      <div class="col-12 col-12-medium col-12-small">
-        <section class="box style1">
-          <table class="row-border hover table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">Rang</th>
-                <th scope="col">N°</th>
-                <th scope="col" style="width:10%;">Pilote/Co-pilote</th>
-                <th scope="col" style="width:20%;"class="d-none d-sm-table-cell">Vehicule</th>
-                <th scope="col" style="width:20%;" class="d-none d-sm-table-cell">Group</th>
-                <th scope="col" style="width:20%;">Temps</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let classement of classements; let i = index">
-                <td>{{i+1}} </td>
-                <th scope="row">{{classement.pilote.numero}} </th>
-                <td>
-                  <img src="https://flagcdn.com/{{classement.pilote.nat_pilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
-                  {{classement.pilote.prenom_pilote}} {{classement.pilote.nom_pilote}} <br/>
-                  <img src="https://flagcdn.com/{{classement.pilote.nat_copilote | lowercase}}.svg" alt="drapeau pays" class="img-fluid  img-thumbnail" height="25" width="25">
-                  {{classement.pilote.prenom_copilote}} {{classement.pilote.nom_copilote}}
-                </td>
-                <td class="d-none d-sm-table-cell">{{classement.pilote.marque_vehicule}}</td>
-                <td class="d-none d-sm-table-cell">{{classement.pilote.classgroup}}</td>
-                <td>{{classement.temps|secondToTime}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+<div class="row">
+  <div class="col-lg-3">
+    <!--begin::Card-->
+    <div class="card hoverlay overflow-hidden">
+      <div class="card-body p-0">
+        <div class="overlay-wrapper">
+          <img src="assets/images/bandama-logo.png" style="width: 200px; height: 150px; margin-left: 30px" class="rounded"/>
+        </div>
       </div>
-
+    </div>
+    <!--end::Card-->
+  </div>
+  <div class="col-xl-9" *ngIf="speciale">
+    <!--begin::Tiles Widget 2-->
+    <div class="card bgi-no-repeat bgi-size-contain card-xl-stretch mb-5 mb-xl-8" style="background-color: #343a40; height: 150px">
+      <!--begin::Body-->
+      <div class="card-body d-flex flex-column" style="text-align: center;">
+        <h2 class="fw-bolder mb-15" style="margin-top: 20px; font-size: 1.5em; font-weight: bolder; color: #ffc107">
+          Classement général officieux (Hors Pénalité) de la spéciale {{speciale.id}} : {{speciale.nom_speciale}}
+        </h2>
+      </div>
+      <!--end::Body-->
     </div>
   </div>
-</article>
-<div class="" style="margin:1%;">
-  
-  <a href="https://iptek-ci.business.site/" target="_blank"><img class="img-fluid img-thumbnail"
-      src="./assets/images/ipteck.jpg" alt="" height="7%" width="7%" style="margin-left:30%;"></a>
-  <img class="img-fluid img-thumbnail" src="./assets/images/fisa.jpg" alt="" height="7%" width="15%"
-    style="margin-left:30%;">
-</div> <br />
+</div>
+<!--begin::Row-->
+<div class="row g-5 g-xl-12">
+  <div class="col-xl-12">
+    <!--begin::Table container-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+        <!--begin::Table head-->
+        <thead>
+        <tr class="fw-bolder text-muted" style="background-color: #343a40">
+          <th class="min-w-20px">Rang</th>
+          <th class="min-w-20px carNumber">N°</th>
+          <th class="min-w-120px">Pilote</th>
+          <th class="min-w-120px">Co-pilote</th>
+          <th class="min-w-120px vehicule">Vehicule</th>
+          <th class="min-w-120px groupe">Groupe</th>
+          <th class="min-w-140px">Temps</th>
+        </tr>
+        </thead>
+        <!--end::Table head-->
+        <!--begin::Table body-->
+        <tbody>
+        <tr *ngFor="let s of classements; let i = index">
+          <td>
+            <div class="d-inline-flex">
+              <div [ngClass]="{'badge badge-square winner': i==0 || i==1 || i==2,
+              'badge-success': i==0,
+              'badge-warning': i==1,
+              'badge-secondary': i==2,
+              'badge badge-square badge-white notWinner': i!==0 && i!==1 && i!==2}"
+                    style="margin-left: 10px; color: black; text-align: center">
+                {{i+1}}
+              </div>
+            </div>
+          </td>
+          <td class="carNumber">
+            <div class="d-flex align-items-center">
+              <span class="text-dark fw-bolder text-hover-primary fs-6">#{{s.pilote.numero}}</span>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex align-items-center">
+              <span class="text-dark fw-bolder text-hover-primary fs-6">
+                <img src="https://flagcdn.com/{{s.pilote.nat_pilote | lowercase}}.svg" alt=""
+                     class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
+                {{s.pilote.prenom_pilote}} {{s.pilote.nom_pilote}} <br />
+              </span>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex align-items-center">
+              <span class="text-dark fw-bolder text-hover-primary fs-6">
+                <img src="https://flagcdn.com/{{s.pilote.nat_copilote | lowercase}}.svg" alt=""
+                     class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
+                {{s.pilote.prenom_copilote}} {{s.pilote.nom_copilote}}
+              </span>
+            </div>
+          </td>
+          <td class="vehicule">
+            <div class="d-flex align-items-center">
+              <span class="text-dark fw-bolder text-hover-primary fs-6">
+                {{s.pilote.marque_vehicule}}
+              </span>
+            </div>
+          </td>
+          <td class="groupe">
+            <div class="d-flex align-items-center">
+              <span class="text-dark fw-bolder text-hover-primary fs-6">
+                {{s.pilote.classgroup}}
+              </span>
+            </div>
+          </td>
+          <td>
+            <span class="text-danger fw-bolder d-block fs-6">
+              {{s.temps|secondToTime}}
+            </span>
+          </td>
+        </tr>
+        </tbody>
+        <!--end::Table body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table container-->
+  </div>
+  <!--end::Col-->
+</div>
+<!--end::Row-->
 
 <!-- <article id="ARC" class="style2">
   <div class="container">
@@ -172,7 +237,7 @@
 
 
 
-<!-- 
+<!--
 <article id="NONSSV" class="style2">
   <div class="container">
     <header>
@@ -306,11 +371,3 @@
   </div>
 </article> -->
 
-<div style="width:100%;">
-
-  <h3 class="text-center" style="margin-top:3%; padding:1%; font-weight:bold;background:silver;">
-    <span style="font-size: 16px;"> Copyright 2019 <a href="https://iptek-ci.business.site/" target="_blank"> IPTEK-CI</a></span>
-    <span style="font-size: 16px;float: right"><a href="https://www.facebook.com/iptekci/" target="_blank"> <i
-          class="fa fa-facebook"></i> </a></span></h3>
-
-</div>

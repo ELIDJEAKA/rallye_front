@@ -1,40 +1,57 @@
-<!-- Portfolio -->
-<article id="portfolio" class="wrapper style3">
-  <div class="container">
-    <header>
-      <h2>Liste des spéciales</h2>
-      <!-- <div class="md-input-wrapper">
-        <p>Effectuer la recherche en tapant le nom de la spéciale</p>
-        <input type="text" id="search-data" class="form-control" [(ngModel)]="term">
-         <label>fff</label>
-
-      </div> -->
-      <div class="form-group">
-        <!-- <label for="exampleInputEmail1">Email address</label> -->
-        <input type="email" class="form-control" [(ngModel)]="term" id="search-data" aria-describedby="emailHelp" placeholder="">
-        <p id="emailHelp" class="form-text text-muted">Effectuer la recherche en tapant le nom de la spéciale</p>
+<div class="row">
+  <div class="col-lg-3">
+    <!--begin::Card-->
+    <div class="card hoverlay overflow-hidden">
+      <div class="card-body p-0">
+        <div class="overlay-wrapper">
+          <img src="assets/images/bandama-logo.png" style="width: 200px; height: 150px; margin-left: 30px" class="rounded"/>
+        </div>
       </div>
-    </header>
-    <div class="row">
-      <div class="col-md-3 col-sm-3 col-xs-12" *ngFor="let s of speciales | filter:term; let i=index">
-        <article class="box style1 container">
-          <a href="#" class="image featured">
-            <img src={{tab_images|ramdompipe}} alt="" style="width: 100%; height:150px;"/>
-          </a>
-          <h3>
-            <a href="#">{{s.nom_speciale}}</a>
-          </h3>
-          <p>Distance : {{s.distance_speciale}} km</p>
-          <p><button type="button" (click)="onSelect(s)" class="btn btn-primary btn-block">Classement S{{s.id}}
-            <i class="icofont icofont-bubble-right"></i>
-          </button></p>
-        </article>
-      </div>
-
     </div>
-    <!-- <footer>
-      <p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
-      <a href="#contact" class="button large scrolly">Get in touch with me</a>
-    </footer> -->
+    <!--end::Card-->
   </div>
-</article>
+  <div class="col-xl-9">
+    <!--begin::Tiles Widget 2-->
+    <div class="card bgi-no-repeat bgi-size-contain card-xl-stretch mb-5 mb-xl-8" style="background-color: #343a40; height: 150px">
+      <!--begin::Body-->
+      <div class="card-body d-flex flex-column" style="text-align: center;">
+        <h2 class="fw-bolder mb-15" style="margin-top: 40px; font-size: 2em; font-weight: bolder; color: #ffc107">LISTE DES SPECIALES</h2>
+      </div>
+      <!--end::Body-->
+    </div>
+  </div>
+</div>
+<!--begin::Row-->
+<div class="row g-5 g-xl-12">
+  <div class="col-xl-12">
+    <div class="mb-10">
+      <input style="background-color:#E0E0E0" type="email" class="form-control form-control-solid" [(ngModel)]="term" id="search-data" placeholder="Effectuer la recherche en tapant le nom de la spéciale"/>
+    </div>
+
+    <div class="row">
+        <div class="card card-px-0 col-md-3 col-sm-3 col-xs-12"
+             *ngFor="let s of speciales | filter:term; let i=index">
+          <div class="card-header ribbon ribbon-start ribbon-clip">
+            <div class="ribbon-label">
+               {{s.nom_speciale}}
+              <br>
+               {{s.distance_speciale}} KM
+              <span class="ribbon-inner bg-dark"></span>
+            </div>
+          </div>
+          <div class="card-body p-0 overlay overflow-hidden">
+            <div class="overlay-wrapper">
+              <img src="{{tab_images|ramdompipe}}" alt="" class="rounded" style="width: 100%; height:150px;"/>
+            </div>
+            <div class="overlay-layer bg-dark bg-opacity-25"></div>
+          </div>
+          <div class="card-footer">
+            <button type="button" (click)="onSelect(s)" href="#" class="btn btn-primary btn-hover-rise me-5"
+                    style="margin-top: -20px;">Classement S{{s.id}}</button>
+          </div>
+        </div>
+    </div>
+  </div>
+  <!--end::Col-->
+</div>
+<!--end::Row-->
