@@ -1,80 +1,117 @@
-<!-- <div class="bg"> -->
-
-
-<!-- <h3>Clickable</h3> -->
-<!-- <p-steps [(model)]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps> -->
-
-<!-- <article id="NONSSV" class="wrapper style2"> -->
-
-  
-  <img class="img-fluid img-thumbnail left" src="./assets/images/bandama-logo.png" alt="" height="7%" width="15%">
-  <img class="img-fluid img-thumbnail" src="./assets/images/fisa.jpg" alt="" height="7%" width="15%" style="margin-left:65%;">
-
-
-<article id="work">
-  <div class="container">
-    <header>
-      <h6 class="text-center text-warning bg-dark d-sm-none" style="margin-top:3%; padding:1%; font-weight:bold;">
-        Classement officieux</h6>
-      <h3 class="text-center text-warning bg-dark d-none d-sm-block"
-        style="margin-top:3%; padding:1%; font-weight:bold;">Classement officieux</h3>
-    </header>
-    <div class="row aln-center">
-      <div class="col-12 col-12-medium col-12-small">
-       <section class="box style1">
-          <table class="row-border hover table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th>Rang</th>
-                <th>N°</th>
-                <!-- <th style="width:10%;">Image</th> -->
-                <th style="width:10%;">Pilote</th>
-                <th style="width:20%;" class="d-none d-md-table-cell">Co-pilote</th>
-                <th style="width:20%;">Vehicule</th>
-                <th style="width:20%;" class="d-none d-md-table-cell">Group</th>
-                <th style="width:20%;">Temps</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let s of classements; let i = index" class="text-decoration: line-through;">
-                <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}">{{i+1}} </td>
-
-                <td style="width:5%;">{{s.numero}} </td>
-                <!-- <td><img src="assets/images/PILOTE COPILOTE/ID/{{ s.numero }}.png" alt=""
-                    class="img-thumbnails img-fluid photo_pilote"> </td> -->
-                <td style="text-align:left;width:10%;">
-                  <img src="https://flagcdn.com/{{s.nat_pilote | lowercase}}.svg" alt=""
-                    class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
-                  {{s.prenom_pilote}} {{s.nom_pilote}} <br />
-                </td>
-                <td style="text-align:left;" class="d-none d-md-table-cell">
-                  <img src="https://flagcdn.com/{{s.nat_copilote | lowercase}}.svg" alt=""
-                    class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
-                  {{s.prenom_copilote}} {{s.nom_copilote}}
-                </td>
-                <td style="text-align:center;">
-                  <!-- <span>
-                    <img src="{{ s.logo_voiture }}" alt="logo {{s.marque_vehicule }}" class="img-fluid img-thumbnails"
-                      style="height:25px;width:25px;">
-                  </span> -->
-                  <span class="d-none d-lg-block">{{s.marque_vehicule}}</span>
-                </td>
-                <td class="d-none d-md-table-cell">{{s.classgroup}}</td>
-                <td style="font-size:13px;">
-                  {{s.arc|secondToTime}} <br />
-                  <span class="text-info" *ngIf="i != 0">
-                    + {{ s.arc - classements[0].arc |secondToTime}}
-                  </span>
-                  <span *ngIf="i == 0" class="text-info"> + 00:00 </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+<div class="row">
+  <div class="col-lg-3">
+    <!--begin::Card-->
+    <div class="card hoverlay overflow-hidden">
+      <div class="card-body p-0">
+        <div class="overlay-wrapper">
+          <img src="assets/images/bandama-logo.png" style="width: 200px; height: 150px; margin-left: 30px" class="rounded"/>
+        </div>
       </div>
     </div>
+    <!--end::Card-->
   </div>
-</article>
+  <div class="col-xl-9">
+    <!--begin::Tiles Widget 2-->
+    <div class="card bgi-no-repeat bgi-size-contain card-xl-stretch mb-5 mb-xl-8" style="background-color: #343a40; height: 150px">
+      <!--begin::Body-->
+      <div class="card-body d-flex flex-column" style="text-align: center;">
+        <h2 class="fw-bolder mb-15" style="margin-top: 40px; font-size: 2em; font-weight: bolder; color: #ffc107">CLASSEMENT OFFICIEUX</h2>
+      </div>
+      <!--end::Body-->
+    </div>
+  </div>
+</div>
+<!--begin::Row-->
+<div class="row g-5 g-xl-12">
+  <div class="col-xl-12">
+    <!--begin::Table container-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+        <!--begin::Table head-->
+        <thead>
+        <tr class="fw-bolder text-muted" style="background-color: #343a40">
+          <th class="min-w-20px">Rang</th>
+          <th class="min-w-20px carNumber">N°</th>
+          <th class="min-w-120px">Pilote</th>
+          <th class="min-w-120px">Co-pilote</th>
+          <th class="min-w-120px vehicule">Vehicule</th>
+          <th class="min-w-120px groupe">Groupe</th>
+          <th class="min-w-140px">Temps</th>
+        </tr>
+        </thead>
+        <!--end::Table head-->
+        <!--begin::Table body-->
+        <tbody>
+        <tr *ngFor="let s of classements; let i = index">
+          <td>
+            <div class="d-inline-flex">
+              <div [ngClass]="{'badge badge-square winner': i==0 || i==1 || i==2,
+              'badge-success': i==0,
+              'badge-warning': i==1,
+              'badge-secondary': i==2,
+              'badge badge-square badge-white notWinner': i!==0 && i!==1 && i!==2}"
+                   style="margin-left: 10px; color: black; text-align: center">
+                {{i+1}}
+              </div>
+            </div>
+          </td>
+          <td class="carNumber">
+            <div class="d-flex align-items-center">
+              <span class="text-dark fw-bolder text-hover-primary fs-6">#{{s.numero}}</span>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex align-items-center">
+              <span class="text-dark fw-bolder text-hover-primary fs-6">
+                <img src="https://flagcdn.com/{{s.nat_pilote | lowercase}}.svg" alt=""
+                     class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
+                {{s.prenom_pilote}} {{s.nom_pilote}} <br />
+              </span>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex align-items-center">
+              <span class="text-dark fw-bolder text-hover-primary fs-6">
+                <img src="https://flagcdn.com/{{s.nat_copilote | lowercase}}.svg" alt=""
+                     class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
+                {{s.prenom_copilote}} {{s.nom_copilote}}
+              </span>
+            </div>
+          </td>
+          <td class="vehicule">
+            <div class="d-flex align-items-center">
+              <span class="text-dark fw-bolder text-hover-primary fs-6">
+                {{s.marque_vehicule}}
+              </span>
+            </div>
+          </td>
+          <td class="groupe">
+            <div class="d-flex align-items-center">
+              <span class="text-dark fw-bolder text-hover-primary fs-6">
+                {{s.classgroup}}
+              </span>
+            </div>
+          </td>
+          <td>
+            <span class="text-danger fw-bolder d-block fs-6">
+              {{s.arc|secondToTime}}
+            </span>
+            <span class="badge badge-primary" *ngIf="i != 0">+ {{ s.arc - classements[0].arc |secondToTime}}</span>
+            <span class="badge badge-primary" *ngIf="i == 0">+ 00:00</span>
+          </td>
+        </tr>
+        </tbody>
+        <!--end::Table body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table container-->
+  </div>
+  <!--end::Col-->
+</div>
+<!--end::Row-->
+
 <!-- <article id="ARC" class="">
   <div class="container">
     <header>
@@ -224,7 +261,7 @@
                 <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}">{{i+1}} </td>
 
                 <td style="width:5%;">{{s.numero}} </td>
-                
+
                 <td style="text-align:left;width:10%;">
                   <img src="https://flagcdn.com/{{s.nat_pilote | lowercase}}.svg" alt=""
                     class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
@@ -276,7 +313,7 @@
               <tr>
                 <th>Rang</th>
                 <th>N°</th>
-                
+
                 <th style="width:10%;">Pilote</th>
                 <th style="width:20%;" class="d-none d-md-table-cell">Co-pilote</th>
                 <th style="width:20%;">Vehicule</th>
@@ -289,7 +326,7 @@
                 <td [ngClass]="{'third': i==2,'second': i==1,'first': i==0}">{{i+1}} </td>
 
                 <td style="width:5%;">{{s.numero}} </td>
-                
+
                 <td style="text-align:left;width:10%;">
                   <img src="https://flagcdn.com/{{s.nat_pilote | lowercase}}.svg" alt=""
                     class="img-fluid  img-thumbnails" style="height:25px;width:25px;">
@@ -323,32 +360,3 @@
 
   </div>
 </article>-->
-
- <div class="" style="margin:1%;">
-<!--  <div class="text-center my-3" width="7%">
-    <span class="col-sm my-2">
-      <img class="img-fluid img-thumbnail left" src="./assets/images/SSV/cacomiaf.jpeg" alt="" height="10%" width="10%">
-    </span>
-    <span class="col-sm my-2">
-      <img class="img-fluid img-thumbnail left" src="./assets/images/SSV/aboisso.jpeg" alt="" height="10%" width="10%">
-    </span>
-    <span class="col-sm my-2">
-      <img class="img-fluid img-thumbnail left" src="./assets/images/SSV/assv_ci.jpeg" alt="" height="10%" width="10%">
-    </span>
-    <span class="col-sm" >
-      <img class="img-fluid img-thumbnail left" src="./assets/images/SSV/orca.jpeg" alt="" height="10%" width="10%">
-    </span>
-  </div> -->
-  <!-- <img class="img-fluid img-thumbnail left" src="./assets/images/SSV/cacomiaf.jpeg" alt="" height="7%" width="15%">
-  <img class="img-fluid img-thumbnail left" src="./assets/images/SSV/aboisso.jpeg" alt="" height="7%" width="15%"> -->
-  <a href="https://iptek-ci.business.site/" target="_blank"><img class="img-fluid img-thumbnail" src="./assets/images/11252763_1417634598557831_3474400750146319604_o.jpg" alt="" height="100%" width="12%" style="margin-left:10%;"></a>
-</div> <br/>
-
-<div style="width:100%;">
-  <header>
-    <h3 class="text-center" style="margin-top:3%; padding:1%; font-weight:bold;background:silver;">
-      <span style="font-size: 16px;"> Copyright 2019 <a href="https://iptek-ci.business.site/" target="_blank"> IPTEK-CI</a></span>
-      <span style="font-size: 16px;float: right"><a href="https://www.facebook.com/iptekci/" target="_blank"> <i class="fa fa-facebook"></i> </a></span></h3>
-  </header>
-</div>
-<!-- </div> -->
